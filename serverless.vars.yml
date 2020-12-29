@@ -1,0 +1,8 @@
+ci:
+  product: firstnodeapp
+dev:
+  product: firstnodeappdev
+stable:
+  product: firstnodeapp
+production:
+  product: firstnodeapp

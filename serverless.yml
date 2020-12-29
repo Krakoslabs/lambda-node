@@ -1,23 +1,16 @@
-service: serverless-nodejs-app
-custom: # add these two lines
-  secrets: ${file(secrets.json)} # reference the secrets.json file
+service: serverless-${file(serverless.vars.yml):${opt:stage, 'dev'}.product}
+# service: serverless-marcos
+# custom: # add these two lines
+  # secrets: ${file(serverless.${self.provider.stage}.yml)} # reference the secrets.json file
 provider:
   name: aws
-  runtime: nodejs8.10
-  stage: production # make sure to change this to production
-  region: eu-central-1
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'eu-west-3'}
   environment: # add environment property
-    NODE_ENV: ${self:custom.secrets.NODE_ENV}
+    # NODE_ENV: ${self:custom.secrets.NODE_ENV}
+    ENV_NAME: ${self:provider.stage}
     # reference the NODE_ENV from the secrets.json file
-  functions:
-    app:
-      handler: app.server
-      events:
-        - http:
-            path: /
-            method: ANY
-            cors: true
-        - http:
-            path: /{proxy+}
-            method: ANY
-            cors: true
+functions:
+  app:
+    handler: app.server

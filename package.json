@@ -4,7 +4,11 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "config": "./scripts/config.sh",
+    "deploy": "./scripts/deploy.sh",
+    "deploy:scheduler": "./scripts/deploy.sh --scheduler",
+    "deploy:poller": "./scripts/deploy.sh --poller"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +16,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "serverless-http": "^2.6.0"
+  },
+  "devDependencies": {
+    "serverless": "^2.16.1"
   }
 }

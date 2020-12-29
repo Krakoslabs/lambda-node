@@ -19,7 +19,7 @@ if [ -z "${STAGE}" ]
 then
   STAGE="dev"
 fi
-CONFIG_COMMAND="config credentials --profile aws-${STAGE} --provider aws --key ${AWS_ACCESS_KEY_ID} --secret ${AWS_SECRET_ACCESS_KEY}"
+CONFIG_COMMAND="config credentials --profile aws-${STAGE} --provider aws --key ${AWS_ACCESS_KEY_ID} --secret ${AWS_SECRET_ACCESS_KEY} -o"
 echo "Executing: serverless ${CONFIG_COMMAND}"
 serverless ${CONFIG_COMMAND}
 
