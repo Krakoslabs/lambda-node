@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "resolve": ". ./scripts/resolve-stage.sh",
     "config": "./scripts/config.sh",
     "deploy": "./scripts/deploy.sh",
     "deploy:scheduler": "./scripts/deploy.sh --scheduler",
