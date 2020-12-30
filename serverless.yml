@@ -12,3 +12,5 @@ provider:
 functions:
   app:
     handler: app.server
+  app2:
+    handler: app2.server
