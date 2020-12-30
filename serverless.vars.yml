@@ -1,11 +1,12 @@
-ci:
-  product: firstnodeapp
-  memory: 512
-  timeout: 20
 dev:
   product: firstnodeappdev
-stable:
-  product: firstnodeapp
-production:
+  memory: 128
+ci:
   product: firstnodeapp
   memory: 128
+stable:
+  product: firstnodeapp
+  memory: 512
+production:
+  product: firstnodeapp
+  timeout: 15

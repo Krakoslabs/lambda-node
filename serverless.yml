@@ -1,18 +1,14 @@
 service: serverless-${file(serverless.vars.yml):${opt:stage, 'dev'}.product}
-# service: serverless-marcos
-# custom: # add these two lines
-  # secrets: ${file(serverless.${self.provider.stage}.yml)} # reference the secrets.json file
+
 provider:
   name: aws
   runtime: nodejs12.x
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'eu-west-3'}
   memorySize: ${file(serverless.vars.yml):${opt:stage}.memory, 1024}
-  timeout: ${file(serverless.vars.yml):${opt:stage}.timeout, 5}
-  environment: # add environment property
-    # NODE_ENV: ${self:custom.secrets.NODE_ENV}
+  timeout: ${file(serverless.vars.yml):${opt:stage}.timeout, 60}
+  environment:
     ENV_NAME: ${self:provider.stage}
-    # reference the NODE_ENV from the secrets.json file
 functions:
   app:
     handler: app.server
