@@ -5,8 +5,8 @@ provider:
   runtime: nodejs12.x
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'eu-west-3'}
-  memorySize: ${file(serverless.vars.yml):${opt:stage}.memory, 1024}
-  timeout: ${file(serverless.vars.yml):${opt:stage}.timeout, 60}
+  memorySize: ${file(serverless.vars.yml):${self:provider.stage}.memory, 1024}
+  timeout: ${file(serverless.vars.yml):${self:provider.stage}.timeout, 60}
   environment:
     ENV_NAME: ${self:provider.stage}
 functions:

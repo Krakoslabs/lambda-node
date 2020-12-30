@@ -6,4 +6,4 @@ if [ $# -eq 0 ]
     exit 0
 fi
 
-serverless remove -v --stage $STAGE --product $PROD
+serverless remove -v --aws-profile aws-$STAGE --stage $STAGE
